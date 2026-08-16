@@ -89,18 +89,7 @@ function show(id){
  window.scrollTo(0,0);
 }
 function pick(el){document.querySelectorAll('#positions button').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
-function startCareer(){
- const n=document.getElementById('name').value.trim()||'Novo Craque';
- localStorage.setItem('dks_player',n);
- document.querySelector('#career h1').textContent='⚽ Carreira de '+n;
- show('career');
- alert('Jogador criado! A tua jornada começa agora.');
-}
-function playMatch(){
- const win=Math.random()>.42;
- const result=document.getElementById('matchResult');
- if(win){
-   document.getElementById('coins').textContent='26.050';
+';
    result.innerHTML='<div class="notice">🔥 VITÓRIA! DKS Academy 2 — 1 City Lions. +300 moedas. O treinador ficou impressionado!</div>';
  }else{
    result.innerHTML='<div class="notice">💪 Fim de jogo: DKS Academy 1 — 1 City Lions. Boa atuação. O próximo treino será importante.</div>';
@@ -112,3 +101,4 @@ if(saved) document.querySelector('#career h1').textContent='⚽ Carreira de '+sa
 </script>
 </body>
 </html>
+
