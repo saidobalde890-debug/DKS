@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dream Kick Soccer — DKS</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#030914;color:#fff;font-family:Arial,Helvetica,sans-serif;min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+.app{min-height:100vh;position:relative;background:
+radial-gradient(circle at 72% 25%,rgba(0,112,255,.18),transparent 28%),
+linear-gradient(180deg,#061326 0%,#020812 100%)}
+.top{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.28)}
+.logo{font-size:27px;font-weight:900;letter-spacing:2px;font-style:italic}.logo span{color:#168cff}
+.stats{display:flex;gap:12px;align-items:center;font-weight:800}.stat{padding:8px 11px;background:rgba(255,255,255,.06);border-radius:12px}.coin{color:#ffd15c}.gem{color:#65b8ff}.star{color:#ffe55c}
+.screen{padding:22px;max-width:1250px;margin:auto}
+.hero{min-height:530px;border-radius:26px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+background:linear-gradient(90deg,rgba(2,8,18,.98) 0%,rgba(2,8,18,.72) 45%,rgba(2,8,18,.18) 100%),
+radial-gradient(circle at 75% 70%,#0d3659,transparent 30%),linear-gradient(135deg,#06101f,#071d34)}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,#020812);pointer-events:none}
+.menu{position:relative;z-index:2;width:min(470px,92%);padding:36px 0 0 36px}
+.menu h1{font-size:76px;margin:0;font-style:italic;letter-spacing:-5px}.menu h1 span{color:#148cff}.tag{font-weight:800;font-size:18px;margin:-4px 0 34px;letter-spacing:2px}
+.btn{width:100%;padding:18px 20px;margin:7px 0;text-align:left;border-radius:10px;background:linear-gradient(90deg,#102033,#0b1523);border:1px solid rgba(255,255,255,.14);font-size:22px;font-weight:900;transition:.15s}.btn:hover{transform:translateX(4px);background:#12325a}.btn.primary{background:linear-gradient(90deg,#087cff,#1760cf)}.btn small{display:block;font-size:13px;opacity:.72;margin-top:4px;font-weight:500}
+.player{position:absolute;right:8%;bottom:-4px;width:290px;height:440px;z-index:1}.head{width:90px;height:105px;background:#d29b75;border-radius:45% 45% 40% 40%;margin:auto;position:relative}.hair{position:absolute;top:-5px;left:5px;right:4px;height:48px;background:#17120f;border-radius:50% 50% 30% 30%}.body{width:170px;height:230px;background:#07172b;margin:-2px auto 0;border-radius:24px 24px 10px 10px;position:relative}.body:before{content:"DKS";position:absolute;top:28px;left:0;right:0;text-align:center;font-weight:900;font-size:24px;letter-spacing:4px}.body:after{content:"10";position:absolute;top:65px;left:0;right:0;text-align:center;font-size:70px;font-weight:900;color:#bfc8d6}.legs{display:flex;gap:20px;justify-content:center}.leg{width:48px;height:145px;background:#07172b;border-radius:0 0 20px 20px}.shoe{height:25px;background:#0c1b2b;border-radius:15px;margin-top:135px}
+.event{position:absolute;right:28px;top:28px;width:285px;background:rgba(5,14,28,.86);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:18px;z-index:3}.event b{display:block;color:#d7e5ff;margin-bottom:8px}.event strong{font-size:20px}.progress{height:8px;background:#17263a;border-radius:20px;overflow:hidden;margin-top:9px}.progress i{display:block;height:100%;width:65%;background:#168cff}
+.hidden{display:none}.panel{max-width:1000px;margin:25px auto;padding:22px;background:#071426;border:1px solid rgba(255,255,255,.1);border-radius:20px}.back{background:#14263b;padding:10px 15px;border-radius:9px;font-weight:800;margin-bottom:18px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:#0b1b2d;border-radius:15px;padding:20px;border:1px solid rgba(255,255,255,.08)}.card h3{margin-top:0}.big{font-size:38px;font-weight:900}.blue{color:#38a2ff}.green{color:#63e6a0}
+.field{width:100%;padding:14px;border-radius:9px;border:1px solid #29415d;background:#07111e;color:#fff;margin:7px 0 14px;font-size:17px}.choice{display:flex;gap:10px;flex-wrap:wrap}.choice button{padding:12px 16px;background:#10243a;border-radius:9px}.choice button.active{background:#087cff}
+.notice{padding:14px;background:#0c2740;border-left:4px solid #168cff;border-radius:8px;margin:15px 0}
+@media(max-width:700px){.top{height:auto;min-height:62px;gap:8px;flex-wrap:wrap;padding:10px}.stats{font-size:13px;gap:5px}.stat{padding:6px}.screen{padding:10px}.hero{min-height:650px}.menu{padding:24px 14px;width:100%}.menu h1{font-size:56px}.event{position:relative;top:auto;right:auto;margin:15px 14px;width:auto}.player{opacity:.45;right:-70px;bottom:0}.btn{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="logo">DKS<span>⚡</span></div>
+  <div class="stats"><div class="stat coin">🪙 <span id="coins">25.750</span></div><div class="stat gem">💎 <span id="gems">320</span></div><div class="stat star">⭐ 12</div></div>
+  <div class="stat">👤 PERFIL</div>
+</header>
+
+<main id="home" class="screen">
+<section class="hero">
+  <div class="menu">
+    <h1>DKS<span>⚡</span></h1><div class="tag">DREAM KICK SOCCER</div>
+    <button class="btn primary" onclick="show('play')">⚽ JOGAR<small>Entre em campo e faça história</small></button>
+    <button class="btn" onclick="show('career')">👥 CARREIRA<small>Viva a jornada de um jogador</small></button>
+    <button class="btn" onclick="show('world')">🌎 MUNDO ABERTO<small>Explore a cidade e melhore sua vida</small></button>
+    <button class="btn" onclick="show('custom')">👕 PERSONALIZAR<small>Personalize seu jogador</small></button>
+    <button class="btn" onclick="shop()">🛒 LOJA<small>Compre itens e melhorias</small></button>
+  </div>
+  <div class="event"><b>EVENTO ATIVO</b><strong>🏆 COPA DAS ESTRELAS</strong><div>Termina em 5d 12h</div><br><b>PASSE DE TEMPORADA</b><div class="progress"><i></i></div><small>350 / 1000</small></div>
+  <div class="player"><div class="head"><div class="hair"></div></div><div class="body"></div><div class="legs"><div class="leg"><div class="shoe"></div></div><div class="leg"><div class="shoe"></div></div></div></div>
+</section>
+</main>
+
+<section id="career" class="panel hidden">
+<button class="back" onclick="show('home')">← VOLTAR</button><h1>⚽ Minha Carreira</h1>
+<div class="notice">A tua jornada começa aqui. Cria o jogador e prepara-te para o primeiro contrato.</div>
+<div class="cards">
+<div class="card"><h3>MEU JOGADOR</h3><div class="big blue">72</div><div>Meia Ofensivo</div></div>
+<div class="card"><h3>CLUBE</h3><div class="big">DKS Academy</div><div>Contrato: iniciante</div></div>
+<div class="card"><h3>OBJETIVO</h3><div class="big green">Titular</div><div>Ganhar espaço no elenco</div></div>
+</div>
+<br><button class="btn primary" onclick="show('create')">COMEÇAR JORNADA →</button>
+</section>
+
+<section id="create" class="panel hidden">
+<button class="back" onclick="show('career')">← VOLTAR</button><h1>👤 Criar Jogador</h1>
+<label>Nome do jogador</label><input id="name" class="field" placeholder="Ex.: João Silva">
+<label>Posição</label><div class="choice" id="positions"><button class="active" onclick="pick(this)">MEIA OFENSIVO</button><button onclick="pick(this)">PONTA</button><button onclick="pick(this)">ATACANTE</button></div>
+<br><button class="btn primary" onclick="startCareer()">CONFIRMAR JOGADOR</button>
+</section>
+
+<section id="play" class="panel hidden">
+<button class="back" onclick="show('home')">← MENU</button><h1>🏟️ Próxima Partida</h1>
+<div class="card"><h2>DKS Academy <span class="blue">VS</span> City Lions</h2><p>Amistoso de preparação • Estádio DKS</p><div class="big">0 — 0</div></div>
+<br><button class="btn primary" onclick="playMatch()">▶ JOGAR PARTIDA</button><div id="matchResult"></div>
+</section>
+
+<section id="world" class="panel hidden"><button class="back" onclick="show('home')">← MENU</button><h1>🌆 Mundo Aberto</h1><div class="cards"><div class="card">🏋️<h3>Centro de Treino</h3><p>Melhora os teus atributos.</p></div><div class="card">🏠<h3>Apartamento</h3><p>Personaliza a tua vida fora do campo.</p></div><div class="card">☕<h3>Cidade</h3><p>Conhece personagens e desbloqueia eventos.</p></div></div></section>
+
+<section id="custom" class="panel hidden"><button class="back" onclick="show('home')">← MENU</button><h1>👕 Personalizar</h1><div class="cards"><div class="card"><h3>Camisa</h3><p>DKS #10</p></div><div class="card"><h3>Chuteiras</h3><p>Padrão</p></div><div class="card"><h3>Visual</h3><p>Jovem promessa</p></div></div></section>
+</div>
+
+<script>
+function show(id){
+ document.querySelectorAll('main,section.panel').forEach(x=>x.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ window.scrollTo(0,0);
+}
+function pick(el){document.querySelectorAll('#positions button').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+function startCareer(){
+ const n=document.getElementById('name').value.trim()||'Novo Craque';
+ localStorage.setItem('dks_player',n);
+ document.querySelector('#career h1').textContent='⚽ Carreira de '+n;
+ show('career');
+ alert('Jogador criado! A tua jornada começa agora.');
+}
+function playMatch(){
+ const win=Math.random()>.42;
+ const result=document.getElementById('matchResult');
+ if(win){
+   document.getElementById('coins').textContent='26.050';
+   result.innerHTML='<div class="notice">🔥 VITÓRIA! DKS Academy 2 — 1 City Lions. +300 moedas. O treinador ficou impressionado!</div>';
+ }else{
+   result.innerHTML='<div class="notice">💪 Fim de jogo: DKS Academy 1 — 1 City Lions. Boa atuação. O próximo treino será importante.</div>';
+ }
+}
+function shop(){alert('🛒 Loja: em breve vamos adicionar equipamentos, melhorias e itens raros!')}
+const saved=localStorage.getItem('dks_player');
+if(saved) document.querySelector('#career h1').textContent='⚽ Carreira de '+saved;
+</script>
+</body>
+</html>
