@@ -99,6 +99,139 @@ function shop(){alert('🛒 Loja: em breve vamos adicionar equipamentos, melhori
 const saved=localStorage.getItem('dks_player');
 if(saved) document.querySelector('#career h1').textContent='⚽ Carreira de '+saved;
 </script>
-</body>
+<<!-- SISTEMA DE UNIFORMES DKS -->
+<div id="uniformesDKS" style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+z-index:9999;
+padding:25px;
+overflow:auto;
+font-family:Arial,Helvetica,sans-serif;
+">
+  <div style="max-width:500px;margin:auto;">
+    
+    <h1 style="color:#fff;text-align:center;">
+      👕 UNIFORMES DKS
+    </h1>
+
+    <p style="color:#aaa;text-align:center;">
+      Escolha o uniforme do DKS Lendas
+    </p>
+
+    <div style="
+      background:#151515;
+      border:2px solid #9aaa00;
+      border-radius:18px;
+      padding:20px;
+      margin:15px 0;
+      text-align:center;
+    ">
+      <div style="
+        width:120px;
+        height:150px;
+        margin:auto;
+        border-radius:20px 20px 12px 12px;
+        background:linear-gradient(135deg,#b4c000,#788000);
+        border:4px solid white;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:white;
+        font-size:22px;
+        font-weight:bold;
+      ">
+        DKS
+      </div>
+
+      <h2 style="color:white;">🟢⚪ Titular</h2>
+
+      <button onclick="escolherUniforme('titular')" style="
+        background:#b4c000;
+        color:white;
+        padding:14px 25px;
+        border-radius:12px;
+        font-size:17px;
+      ">
+        USAR TITULAR
+      </button>
+    </div>
+
+    <div style="
+      background:#151515;
+      border:2px solid #777;
+      border-radius:18px;
+      padding:20px;
+      margin:15px 0;
+      text-align:center;
+    ">
+      <div style="
+        width:120px;
+        height:150px;
+        margin:auto;
+        border-radius:20px 20px 12px 12px;
+        background:#050505;
+        border:4px solid white;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:#aaa;
+        font-size:22px;
+        font-weight:bold;
+      ">
+        DKS
+      </div>
+
+      <h2 style="color:white;">⚫⚪ Reserva</h2>
+
+      <button onclick="escolherUniforme('reserva')" style="
+        background:#222;
+        color:white;
+        border:2px solid white;
+        padding:14px 25px;
+        border-radius:12px;
+        font-size:17px;
+      ">
+        USAR RESERVA
+      </button>
+    </div>
+
+    <button onclick="fecharUniformes()" style="
+      width:100%;
+      padding:15px;
+      background:#333;
+      color:white;
+      border:0;
+      border-radius:12px;
+      font-size:17px;
+    ">
+      FECHAR
+    </button>
+
+  </div>
+</div>
+
+<script>
+function abrirUniformes(){
+  document.getElementById('uniformesDKS').style.display='block';
+}
+
+function fecharUniformes(){
+  document.getElementById('uniformesDKS').style.display='none';
+}
+
+function escolherUniforme(tipo){
+  localStorage.setItem('dks_uniforme',tipo);
+
+  if(tipo==='titular'){
+    alert('🟢⚪ Uniforme titular do DKS Lendas selecionado!');
+  }else{
+    alert('⚫⚪ Uniforme reserva do DKS Lendas selecionado!');
+  }
+
+  fecharUniformes();
+}
+</script>/body>
 </html>
 
